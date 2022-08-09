@@ -3,12 +3,12 @@
   fxLayout="row"
   fxLayoutAlign="space-between center"
 >
-  <button mat-button routerLink="/picaflor">
-    <img src="assets/img/picaflor_logo.png" style="height: 20px" />
+  <button mat-button routerLink="/floral">
+    <img src="assets/img/floral_logo.png" style="height: 20px" />
     {{ title }}
   </button>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-    <button mat-button routerLink="/picaflor/orders">
+    <button mat-button routerLink="/floral/orders">
       <mat-icon>receipt</mat-icon>
       Orders
     </button>
@@ -22,11 +22,11 @@
   </button>
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item routerLink="/picaflor">
+  <button mat-menu-item routerLink="/floral">
     <mat-icon>space_dashboard</mat-icon>
     Home
   </button>
-  <button mat-menu-item routerLink="/picaflor/orders">
+  <button mat-menu-item routerLink="/floral/orders">
     <mat-icon>receipt</mat-icon>
     Orders
   </button>

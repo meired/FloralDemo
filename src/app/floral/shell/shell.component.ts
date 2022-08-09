@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/auth';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShellComponent implements OnInit, OnDestroy {
-  public title = 'Picaflor';
+  public title = 'Floral';
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
 

@@ -34,7 +34,7 @@ export class CanLoadAuthGuard implements CanLoad {
             : true
           : route.path !== 'login'
           ? true
-          : this._router.parseUrl('/picaflor')
+          : this._router.parseUrl('/floral')
       )
     );
   }

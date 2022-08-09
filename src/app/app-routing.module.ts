@@ -5,12 +5,12 @@ import { CanLoadAuthGuard } from './auth';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./picaflor/login').then((m) => m.LoginModule),
+    loadChildren: () => import('./floral/login').then((m) => m.LoginModule),
     canLoad: [CanLoadAuthGuard],
   },
   {
-    path: 'picaflor',
-    loadChildren: () => import('./picaflor/shell').then((m) => m.ShellModule),
+    path: 'floral',
+    loadChildren: () => import('./floral/shell').then((m) => m.ShellModule),
     canLoad: [CanLoadAuthGuard],
   },
   {

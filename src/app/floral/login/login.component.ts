@@ -28,8 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private _authService: AuthService,
     private _cdr: ChangeDetectorRef
   ) {
-    this.returnUrl =
-      this._route.snapshot.queryParams['returnUrl'] || '/picaflor';
+    this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/floral';
 
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
@@ -80,7 +79,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (_) => {
           this.isLoginValid = true;
-          this._router.navigateByUrl('/picaflor');
+          this._router.navigateByUrl('/floral');
         },
         error: (_) => {
           this.isLoginValid = false;

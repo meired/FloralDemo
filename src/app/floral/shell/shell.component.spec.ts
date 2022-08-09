@@ -28,14 +28,14 @@ describe('ShellComponent', () => {
   it(`should have as title 'material-login'`, () => {
     const fixture = TestBed.createComponent(ShellComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Picaflor');
+    expect(app.title).toEqual('Floral');
   });
 
   it('should render title in a button', async () => {
     const fixture = TestBed.createComponent(ShellComponent);
     const loader = TestbedHarnessEnvironment.loader(fixture);
     const buttons = await loader.getAllHarnesses(
-      MatButtonHarness.with({ text: 'Picaflor' })
+      MatButtonHarness.with({ text: 'Floral' })
     );
     expect(buttons).toHaveSize(1);
   });
