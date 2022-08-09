@@ -1,0 +1,42 @@
+<mat-card class="card">
+  <mat-card-content>
+    <form [formGroup]="loginForm" class="tw-mb-2" (ngSubmit)="onSubmit()">
+      <img
+        class="logo tw-mx-auto"
+        src="assets/img/sunshine_bouquet.png"
+        alt="Sunshine Bouquet Logo"
+      />
+      <h2 class="tw-my-2 tw-font-semibold">Log In</h2>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="username"
+          formControlName="username"
+          placeholder="Username"
+        />
+        <mat-error>Please provide a valid username.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          name="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+        <mat-error>Please provide a valid password.</mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="!isLoginValid" class="tw-mb-5">
+        The username and password were not recognized.
+      </mat-error>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.valid">
+        Login
+      </button>
+    </form>
+    <button mat-button color="primary" (click)="register()">Register</button>
+    <a mat-button color="primary" class="tw-my-3" routerLink="/picaflor"
+      >Try go to dashboard</a
+    >
+  </mat-card-content>
+</mat-card>

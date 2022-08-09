@@ -1,28 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { GameComponent } from './game/game.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './auth.guard';
+import { CanLoadAuthGuard } from './auth';
 
 const routes: Routes = [
   {
-    path: 'game',
-    component: GameComponent,
-    canActivate: [ AuthGuard ]
+    path: 'login',
+    loadChildren: () => import('./picaflor/login').then((m) => m.LoginModule),
+    canLoad: [CanLoadAuthGuard],
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'picaflor',
+    loadChildren: () => import('./picaflor/shell').then((m) => m.ShellModule),
+    canLoad: [CanLoadAuthGuard],
   },
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
+  {
+    path: '**/**',
+    redirectTo: '',
+    pathMatch: 'full',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

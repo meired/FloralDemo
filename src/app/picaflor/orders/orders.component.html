@@ -1,0 +1,19 @@
+<h2>Order List</h2>
+<ng-container *ngIf="orders.length">
+  <app-order-item
+    *ngFor="let order of orders"
+    [order]="order"
+    [id]="order.id"
+    (delete)="onItemDeleted($event)"
+  >
+  </app-order-item>
+</ng-container>
+<mat-card
+  *ngIf="!orders.length"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+>
+  <mat-card-content>
+    <p>No orders found.</p>
+  </mat-card-content>
+</mat-card>
