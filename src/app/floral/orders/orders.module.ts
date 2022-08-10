@@ -1,7 +1,7 @@
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ComponentsModule } from 'src/app/component-library';
+import { ComponentsModule } from 'src/app/ui-library';
 import { OrderItemComponent } from './order-item';
 import { OrdersComponent } from './orders.component';
 

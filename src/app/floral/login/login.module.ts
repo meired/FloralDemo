@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { ComponentsModule } from 'src/app/component-library';
+import { ComponentsModule } from 'src/app/ui-library';
 import { LoginComponent } from './login.component';
 
 const routes: Routes = [

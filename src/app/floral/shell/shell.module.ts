@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanActivateAuthGuard } from 'src/app/auth';
-import { ComponentsModule } from 'src/app/component-library';
+import { ComponentsModule } from 'src/app/ui-library';
 import { ShellComponent } from './shell.component';
 
 const routes: Routes = [
