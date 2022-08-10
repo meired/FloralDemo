@@ -10,7 +10,7 @@
     />
     {{ title }}
   </button>
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+  <div fxLayout="row" [fxShow]="false" fxShow.gt-sm>
     <button mat-button routerLink="/floral/orders">
       <mat-icon>receipt</mat-icon>
       Orders
@@ -20,7 +20,12 @@
       Logout
     </button>
   </div>
-  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+  <button
+    mat-button
+    [mat-menu-trigger-for]="menu"
+    [fxHide]="false"
+    fxHide.gt-sm
+  >
     <mat-icon>menu</mat-icon>
   </button>
 </mat-toolbar>

@@ -6,9 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "styles": "npx tailwindcss -i ./src/app/common/main.scss -o ./src/tailwind.scss",
-    "styles:dev": "npx tailwindcss -i ./src/app/common/main.scss -o ./src/tailwind.scss --watch"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
