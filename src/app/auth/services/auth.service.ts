@@ -3,11 +3,13 @@ import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserLogin, UserRegister, UserInfo } from '../types';
+import { environment } from 'src/environments/environment';
+import { BaseHttpService } from 'src/app/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService implements OnDestroy {
+export class AuthService extends BaseHttpService implements OnDestroy {
   private _authSub$: BehaviorSubject<string | null> = new BehaviorSubject<
     string | null
   >(null);
@@ -16,7 +18,9 @@ export class AuthService implements OnDestroy {
     return this._authSub$.asObservable().pipe(map((t) => !!t));
   }
 
-  constructor(private _router: Router, private _http: HttpClient) {}
+  constructor(private _router: Router, private _http: HttpClient) {
+    super();
+  }
 
   public ngOnDestroy(): void {
     this._authSub$.next(null);
@@ -24,24 +28,16 @@ export class AuthService implements OnDestroy {
   }
 
   public register(user: UserRegister): Observable<UserInfo> {
-    return this._http
-      .post('https://localhost:7120/api/auth/register', user)
-      .pipe(
-        map((r) => r as UserInfo),
-        tap({
-          next: (user) => alert('User registered!'),
-          error: (error) => console.log('Tap Error', error),
-        })
-      );
+    return this.handleRequest<UserInfo>(
+      this._http.post(`${environment.authApi}/auth/register`, user),
+      (_) => alert('User registered!')
+    );
   }
 
   public login(user: UserLogin): Observable<UserInfo> {
-    return this._http.post('https://localhost:7120/api/auth/login', user).pipe(
-      map((r) => r as UserInfo),
-      tap({
-        next: (user) => this._authSub$.next(<string>user.token),
-        error: (error) => console.log('Tap Error', error),
-      })
+    return this.handleRequest<UserInfo>(
+      this._http.post(`${environment.authApi}/auth/login`, user),
+      (user) => this._authSub$.next(<string>user.token)
     );
   }
 
