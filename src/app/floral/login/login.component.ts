@@ -60,9 +60,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   public register(): void {
     this._authService
       .register({
-        fullName: 'Jeimy Rojas',
-        userName: 'jrojas',
-        password: 'someweirdpassword',
+        fullName: 'Mey Red',
+        userName: 'mred',
+        password: 'weirdpass',
       })
       .subscribe();
   }
